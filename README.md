@@ -1,6 +1,8 @@
 # Bibliotopia
 
-![Bibliotopia App]("./sample-image.png")
+<p align="center">
+  <img src="./Project-Sample.png" width="1000px">
+</p>
 
 ## About
 
