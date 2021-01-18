@@ -1,6 +1,6 @@
 # Bibliotopia
 
-![Bibliotopia App](bibliotopia-ea7bb.web.app/)
+![Bibliotopia App]("./sample-image.png")
 
 ## About
 
