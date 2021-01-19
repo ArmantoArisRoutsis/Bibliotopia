@@ -6,7 +6,9 @@
 
 ## About
 
-###### This is a FullStack Wep Application where users can add their book recomendations. They can input information such as Author, Book Title, A Description and an Image. Users can also update their posts or delete them as well as like posts made by them or other users.
+###### This is a FullStack Wep Application where users can add their book recomendations. They can input information such as the book author, the book title, a description and an image. Users can also update their posts or delete them as well as like posts made by them or other users.
+
+###### The Front-end of the application was created with React. For the styling I mainly used CSS and the Material-UI library. As for state managment Redux was used. The Back-End of the applicationwas build with Node and Express. The database used to hold all of the information is MongoDB.
 
 ## Technologies Used
 
