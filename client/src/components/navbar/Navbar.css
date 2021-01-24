@@ -1,0 +1,76 @@
+:root{
+    --navigation-blue: rgb(81, 79, 196);
+}
+.navbar-container{
+    background-color: rgb(253, 253, 253);
+    color: var(--navigation-blue);
+    position: fixed;
+    width: 100%;
+    z-index: 4;
+    top: 0;
+    height: 60px;
+}
+.navbar-container h1{
+    padding: 20px;
+    margin: 10px;
+}
+
+.nav-title{
+    text-decoration: none;
+    color: var(--navigation-blue);
+}
+.navbar-links, .navbar-container h1{
+    display: inline;
+}
+
+.navbar-links{
+    float: right;
+    margin-right:20px;
+}
+
+.navbar-links li {
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+    border: var(--navigation-blue) 2px solid;
+    transition: background-color 0.5s, color 0.5s;
+    font-weight: bold;
+    width: 130px;
+}
+
+.navbar-links li:hover, .navbar-links li:active {
+    background-color: var(--navigation-blue);
+    color: white;
+}
+
+.menu-nav{
+    position: absolute;
+    top: -100px;
+}
+
+@media only screen and (max-width: 700px) {
+    .navbar-links{
+        margin: 0 auto;
+        float: none;
+    }
+    .navbar-links li{
+        display: block;
+        width: 200px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 50px;
+    }
+    .navbar-container{
+        z-index: 120;
+    }
+    .menu-nav {
+        position: fixed;
+        top: 12px;
+        right: 30px;
+        height: 24px;
+        width: 24px;
+    }
+    button{
+        border: none;
+    }
+}

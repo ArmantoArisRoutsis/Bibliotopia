@@ -1,0 +1,64 @@
+:root {
+    --navigation-blue: rgb(81, 79, 196);
+}
+
+.post-container{
+    width: 80%;
+    margin: 100px auto;
+    border-radius: 15px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    border: var(--navigation-blue) 5px solid;
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+    url("https://i1.wp.com/www.5geliraklio.gr/wp-content/uploads/2019/06/Essential-Books.jpg?fit=1200%2C675");
+}
+
+.buttons{
+    color: white;
+    background-color: rgba(8, 8, 8,0.7);
+    width: 300px;
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.post-image{
+    margin-top: 30px;
+    max-height: 400px;
+    max-width: 300px;
+    border-radius: 10px;
+    border: rgba(81, 79, 196, 0.7) 12px solid;
+}
+
+.main-content {
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(81, 79, 196,0.7);
+    color: white;
+}
+
+@media only screen and (max-width: 1319px) {
+    .post-container{
+        display: block;
+        padding: 10px;
+        width: 90%;
+    }
+    .post-image{
+        max-height:600px ;
+        width: 100%;
+    }
+    .main-content{
+        display: block;
+    }
+    .buttons{
+        position: relative;
+        left: 350px;
+        bottom: 150px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .buttons{
+        position: initial;
+    }
+}

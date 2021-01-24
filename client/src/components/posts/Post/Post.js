@@ -1,7 +1,7 @@
 import React from 'react'
-import {Card, CardActions, CardContent, CardMedia, Button, Typography} from "@material-ui/core"
+import {Button} from "@material-ui/core"
+import {useHistory} from "react-router-dom"
 
-import useStyles from "./styles"
 import moment from "moment"
 
 import StarIcon from '@material-ui/icons/Star';
@@ -11,42 +11,45 @@ import MoreHorizIcon from "@material-ui/icons/MoreHoriz"
 import {useDispatch} from "react-redux"
 import {deletePost, likePost} from "../../../actions/posts"
 
-const Post = ({post,setCurrentId}) => {
-    const classes = useStyles();
+import "./Post.css"
+
+const Post = ({post,setCurrentId, setShowModal}) => {
     const dispatch = useDispatch();
+    const history = useHistory()
+
+    const handleViewPost = (e) =>{
+        e.preventDefault();
+        setCurrentId(post._id)
+        history.push(`/post/${post._id}`)
+    } 
+
 
     return (
-        <Card className={classes.card}>
-            <CardMedia className={classes.media} image={post.selectedFile} title={post.title}/>
-            <div className={classes.overlay}>
-                <Typography variant="h6">{post.author}</Typography>
-                <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
+        <article className="post-card-container">
+            <img src={post.selectedFile}/>
+            <div className="creation-info">
+                <h4>{moment(post.createdAt).fromNow()}</h4>
+                <h5>{post.author}</h5>
             </div>
-            <div className={classes.overlay2}>
-                <Button style={{color:'white'}} size="small" onClick={()=>setCurrentId(post._id)}>
-                    <MoreHorizIcon fontSize="default"/> 
-                </Button>
-            </div>
-            <div className={classes.details}>
-                <Typography variant="body2" color ="textSecondary">{post.categories.map(tag =>`#${tag} `)}</Typography>
-            </div>
-                <Typography variant="h5" gutterBottom>{post.title}</Typography>
-            <CardContent>
-                <Typography variant="body2" gutterBottom>{post.description && post.description.length>150?post.description.substring(0,150)+"...":post.description}</Typography>
-            </CardContent>
-            <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={()=>dispatch(likePost(post._id))}>
-                    <StarIcon/> &nbsp; Favorite &nbsp;{post.likeCount}
-                </Button>
-                <Button size="small" color="primary" onClick={()=>dispatch(deletePost(post._id))}>
-                    <DeleteIcon/>Delete
-                </Button>
-            </CardActions>
-            
+            <div className="overlay"></div>
+            <div className="card-content">
+                <h3>{post.title}</h3>
+                <h5>{post.categories.map(tag =>`#${tag} `)}</h5>
+                <p>
+                    {post.description && post.description.length>150?post.description.substring(0,150)+"...":post.description}<a href="" className="view-more" onClick={handleViewPost}> View More</a>
+                    <div className="card-buttons">
+                        <Button size="small" color="primary" style={{color:"FF2D00"}} onClick={()=>dispatch(likePost(post._id))}>
+                            <StarIcon/> &nbsp; Favorite &nbsp;{post.likeCount}
+                        </Button>
+                        <Button size="small" color="primary" style={{color:"brown"}} onClick={()=>dispatch(deletePost(post._id))}>
+                            <DeleteIcon/>Delete
+                        </Button>
+                    </div>
+                </p>
 
-        </Card>
+            </div>
+        </article>
     )
 }
 
 export default Post
-

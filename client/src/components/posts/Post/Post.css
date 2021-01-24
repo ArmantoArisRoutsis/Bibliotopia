@@ -1,0 +1,90 @@
+.post-card-container{
+    position: relative;
+    max-width: 550px;
+    max-height: 400px;
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    margin: 0 auto;
+    transition: max-width 0.8s;
+}
+
+.post-card-container:hover{
+    max-width: 600px;
+}
+
+.post-card-container img{
+    height: 350px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.overlay{
+    position: absolute;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    z-index: 2;
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-content{
+    position: relative;
+    background-color: white;
+    float: right;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px;
+    z-index: 2;
+}
+
+.card-content h5{
+    color: brown;
+}
+
+.card-buttons{
+    position: absolute;
+    bottom: 0;
+}
+
+.creation-info{
+    position: absolute;
+    z-index: 3;
+    color: white;
+    padding: 3px;
+}
+
+.view-more{
+    text-decoration: none;
+    color: rgb(34, 65, 148);
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 500px) {
+    .post-card-container{
+        display: block;
+    }
+    .overlay{
+        top: 0;
+    }
+    .creation-info{
+        top: 0;
+        left: 10px;
+    }
+    .card-content {
+        position: relative;
+        background-color: white;
+        border-radius: 0px 0px 10px 10px;
+        padding: 10px;
+        z-index: 2;
+        bottom: 50px;
+    }
+    .card-buttons{
+       position: initial;
+       margin-top: 20px;
+    }
+    .post-card-container img {
+        width: 100%;
+    }
+
+    
+}
