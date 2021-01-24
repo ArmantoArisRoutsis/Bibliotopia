@@ -1,18 +1,18 @@
 import React from 'react'
 import {useHistory, useParams} from "react-router-dom"
-import {Grow, Button, CircularProgress} from "@material-ui/core"
 
 import {useDispatch, useSelector} from "react-redux"
 import {deletePost, likePost} from "../../actions/posts"
 
-import "./SinglePost.css"
 import moment from "moment"
+import Modal from "../modal/Modal"
 
 import StarIcon from '@material-ui/icons/Star';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
-import Modal from "../modal/Modal"
+import "./SinglePost.css"
+import {Grow, Button, CircularProgress} from "@material-ui/core"
 
 
 const SinglePost = ({setCurrentId, setShowModal, showModal, currentId}) => {
@@ -29,6 +29,11 @@ const SinglePost = ({setCurrentId, setShowModal, showModal, currentId}) => {
         history.push("/")
     }
 
+    const editPost =()=>{
+        setCurrentId(postId)
+        setShowModal(!showModal)
+    }
+
 
     return (
         !posts.length?<CircularProgress style={{'color': 'white','margin-left':"50%","margin-top":"300px"}}/>:<Grow in><article className="post-container">
@@ -41,7 +46,7 @@ const SinglePost = ({setCurrentId, setShowModal, showModal, currentId}) => {
                     <Button size="small" style={{color:"yellow"}} onClick={()=>dispatch(likePost(post._id))}>
                         <StarIcon/> &nbsp; Favorite &nbsp;{post.likeCount}
                     </Button>
-                    <Button size="small" color="secondary" onClick={()=>setShowModal(!showModal)}>
+                    <Button size="small" color="secondary" onClick={editPost}>
                         <EditIcon/>Edit
                     </Button>
                     <Button size="small" color="secondary" onClick={deleteSiglePost}>

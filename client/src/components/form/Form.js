@@ -1,11 +1,15 @@
 import React,{useState, useEffect} from 'react'
-import useStyles from "./styles"
-import {TextField, Button, Typography,Paper} from "@material-ui/core"
-import FileBase from "react-file-base64"
+import {useHistory} from "react-router-dom"
+
 import {useDispatch, useSelector} from "react-redux"
 import {createPost, updatePost} from "../../actions/posts"
 
-const Form = ({currentId,setCurrentId,showClear}) => {
+import FileBase from "react-file-base64"
+
+import useStyles from "./styles"
+import {TextField, Button, Typography,Paper} from "@material-ui/core"
+
+const Form = ({currentId,setCurrentId,showClear,setShowModal}) => {
     const [postData,setPostData] = useState({
         author:"",
         title:"",
@@ -14,8 +18,11 @@ const Form = ({currentId,setCurrentId,showClear}) => {
         selectedFile:""
     })
     const classes = useStyles();
+
     const dispatch = useDispatch();
     const post = useSelector(state => currentId? state.posts.find(p=>p._id === currentId):null)
+    
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -24,11 +31,13 @@ const Form = ({currentId,setCurrentId,showClear}) => {
 
     const handleSubmit =(e)=>{
         e.preventDefault();
+        setShowModal(false)
 
         if(currentId){
             dispatch(updatePost(currentId,postData)) 
         }else{
             dispatch(createPost(postData))
+            history.push("/")
         }
         clear()
     }

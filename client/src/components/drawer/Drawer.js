@@ -5,7 +5,7 @@ import {CSSTransition} from "react-transition-group"
 
 const Drawer = (props) => {
     const content = (
-    <CSSTransition in={props.show} timeout={200} classNames="slide" mountOnEnter unmountOnExit>
+    <CSSTransition in={props.show} timeout={200} classNames="slide-in-right" mountOnEnter unmountOnExit>
     <aside className="side-drawer">{props.children}</aside>
     </CSSTransition>)
     

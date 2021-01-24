@@ -1,9 +1,9 @@
 .modal {
   z-index: 100;
   position: fixed;
-  top: 22vh;
-  left: 10%;
-  width: 80%;
+  top: 15vh;
+  left: 5%;
+  width: 90%;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 8px;
@@ -55,4 +55,19 @@
   transform: translateY(-10rem);
   opacity: 0;
   transition: all 200ms;
+}
+
+.close-modal-btn{
+  width: 55px;
+  height: 30px;
+  margin: 5px 0 5px 45%;
+  color: white;
+  background-color: brown;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.4s;
+}
+
+.close-modal-btn:hover{
+  background-color: rgb(109, 20, 20);
 }

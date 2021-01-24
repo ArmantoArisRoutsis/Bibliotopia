@@ -1,10 +1,11 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import "./Modal.css"
+
+import Backdrop from "../backdrop/Backdrop"
 import Form from "../form/Form"
 
 import {Grow} from "@material-ui/core"
-import Backdrop from "../backdrop/Backdrop"
+import "./Modal.css"
 
 const ModalOverlay = ({setCurrentId,currentId, setShowModal}) => {
 
@@ -12,8 +13,8 @@ const ModalOverlay = ({setCurrentId,currentId, setShowModal}) => {
     const content = (
         <Grow in onExit>
         <div className="modal">
-            <Form currentId={currentId} setCurrentId={setCurrentId}/>
-            <button onClick={()=>setShowModal(false)}>cancel</button>
+            <Form currentId={currentId} setCurrentId={setCurrentId} setShowModal={setShowModal}/>
+            <button onClick={()=>setShowModal(false)} className="close-modal-btn">Close</button>
         </div></Grow>
     );
     return ReactDom.createPortal(content,document.getElementById('modal-hook'))
