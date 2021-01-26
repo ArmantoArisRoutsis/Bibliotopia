@@ -6,6 +6,7 @@ import {getPosts} from "./actions/posts"
 import HomePage from "./components/HomePage"
 import SinglePost from "./components/singlePost/SinglePost"
 import Navbar from "./components/navbar/Navbar"
+import Auth from "./components/auth/Auth"
 
 function App() {
   const [currentId,setCurrentId] = useState(null)
@@ -24,6 +25,9 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <HomePage currentId={currentId} setCurrentId={setCurrentId} setShowModal={setShowModal} showModal={showModal}/>
+        </Route>
+        <Route path="/auth" exact>
+          <Auth/>
         </Route>
         <Route path="/post/:id">
           <SinglePost currentId={currentId} setCurrentId={setCurrentId} setShowModal={setShowModal} showModal={showModal}/>

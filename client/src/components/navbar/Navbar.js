@@ -8,6 +8,7 @@ import "./Navbar.css"
 import Backdrop from "../backdrop/Backdrop"
 
 const Navbar = ({setShowModal,setCurrentId}) => {
+    const user = null;
     const [showDrawer,setShowDrawer] = useState(false)
     const [windowWidth,setWindowWidth]= useState(window.innerWidth)
     const newPost =()=>{
@@ -34,11 +35,13 @@ const Navbar = ({setShowModal,setCurrentId}) => {
             {showDrawer&&<Backdrop onClick={()=>setShowDrawer(false)}/>}
             <Drawer show={showDrawer}>
             <ul className="navbar-links">
+                <Link to="/auth" style={{ textDecoration: 'none'}}><li >Log In</li></Link>
                 <Link style={{ textDecoration: 'none'}} onClick={createNewPost}><li >Add a new book</li></Link>
                 <Link to="/" style={{ textDecoration: 'none' }} onClick={()=>setShowDrawer(false)}><li>Browse Books</li></Link>
             </ul>
             </Drawer>
             {windowWidth>700&&<ul className="navbar-links">
+                <Link to="/auth" style={{ textDecoration: 'none'}}><li >Log In</li></Link>
                 <Link style={{ textDecoration: 'none'}} onClick={newPost}><li >Add a new book</li></Link>
                 <Link to="/" style={{ textDecoration: 'none' }} onClick={()=>setShowDrawer(false)}><li>Browse Books</li></Link>
             </ul>}
